@@ -13,12 +13,16 @@ class HomeViewController: UIViewController {
     
     var presenter: HomePresenter!
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupPresenter()
         configureCollectionView()
     }
+    
+    // MARK: - Helper Methods
 
     private func configureCollectionView() {
         photosCollectionView.register(UINib(nibName: "PhotosCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: PhotosCollectionViewCell.cellIdentifier)
@@ -33,7 +37,15 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UICollectionViewDelegate {
-    //Write Delegate Code Here
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: DetailsViewController.storyboardID) as! DetailsViewController
+        guard let cell = collectionView.cellForItem(at: indexPath) as? PhotosCollectionViewCell else {return}
+        guard let photo = cell.photoImageView.image else {return}
+        viewController.photo = photo
+        // Alternative way to present the new view controller
+        present(viewController, animated: true)
+    }
 }
 
 extension HomeViewController: UICollectionViewDataSource {

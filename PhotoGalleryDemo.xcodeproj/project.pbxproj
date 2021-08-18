@@ -20,6 +20,8 @@
 		D148EB2226CB460800B248DD /* UploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148EB1926CB460800B248DD /* UploadData.swift */; };
 		D148EB2326CB460800B248DD /* PhotosRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148EB1A26CB460800B248DD /* PhotosRouter.swift */; };
 		D148EB4526CC5AA700B248DD /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148EB4426CC5AA700B248DD /* HomePresenter.swift */; };
+		D148EB5426CC98E400B248DD /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148EB5326CC98E400B248DD /* DetailsViewController.swift */; };
+		D148EB5E26CCA05F00B248DD /* UIImage+DominantColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D148EB5D26CCA05F00B248DD /* UIImage+DominantColor.m */; };
 		D1548B0126CB177600438E63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1548B0026CB177600438E63 /* AppDelegate.swift */; };
 		D1548B0326CB177600438E63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1548B0226CB177600438E63 /* SceneDelegate.swift */; };
 		D1548B0526CB177600438E63 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1548B0426CB177600438E63 /* HomeViewController.swift */; };
@@ -69,6 +71,10 @@
 		D148EB1926CB460800B248DD /* UploadData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadData.swift; sourceTree = "<group>"; };
 		D148EB1A26CB460800B248DD /* PhotosRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosRouter.swift; sourceTree = "<group>"; };
 		D148EB4426CC5AA700B248DD /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		D148EB5326CC98E400B248DD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		D148EB5B26CCA05F00B248DD /* PhotoGalleryDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoGalleryDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		D148EB5C26CCA05F00B248DD /* UIImage+DominantColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+DominantColor.h"; sourceTree = "<group>"; };
+		D148EB5D26CCA05F00B248DD /* UIImage+DominantColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+DominantColor.m"; sourceTree = "<group>"; };
 		D1548AFD26CB177600438E63 /* PhotoGalleryDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoGalleryDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1548B0026CB177600438E63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1548B0226CB177600438E63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				D148EAF426CB35E800B248DD /* Extension.swift */,
+				D148EB5C26CCA05F00B248DD /* UIImage+DominantColor.h */,
+				D148EB5D26CCA05F00B248DD /* UIImage+DominantColor.m */,
+				D148EB5B26CCA05F00B248DD /* PhotoGalleryDemo-Bridging-Header.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -177,6 +186,22 @@
 				D148EB1A26CB460800B248DD /* PhotosRouter.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		D148EB5126CC98B200B248DD /* Details Screen */ = {
+			isa = PBXGroup;
+			children = (
+				D148EB5226CC98C000B248DD /* View Conntrollers */,
+			);
+			path = "Details Screen";
+			sourceTree = "<group>";
+		};
+		D148EB5226CC98C000B248DD /* View Conntrollers */ = {
+			isa = PBXGroup;
+			children = (
+				D148EB5326CC98E400B248DD /* DetailsViewController.swift */,
+			);
+			path = "View Conntrollers";
 			sourceTree = "<group>";
 		};
 		D1548AF426CB177600438E63 = {
@@ -250,6 +275,7 @@
 		D1548B3D26CB221300438E63 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D148EB5126CC98B200B248DD /* Details Screen */,
 				D1548B3C26CB21E200438E63 /* Main Screen */,
 			);
 			path = Modules;
@@ -383,6 +409,7 @@
 				TargetAttributes = {
 					D1548AFC26CB177600438E63 = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
 					};
 					D1548B1226CB177800438E63 = {
 						CreatedOnToolsVersion = 12.3;
@@ -561,9 +588,11 @@
 				D148EB2326CB460800B248DD /* PhotosRouter.swift in Sources */,
 				D1548B4326CB260D00438E63 /* PhotosCollectionViewCell.swift in Sources */,
 				D148EAF526CB35E800B248DD /* Extension.swift in Sources */,
+				D148EB5426CC98E400B248DD /* DetailsViewController.swift in Sources */,
 				D148EB2226CB460800B248DD /* UploadData.swift in Sources */,
 				D1548B0126CB177600438E63 /* AppDelegate.swift in Sources */,
 				D148EB1B26CB460800B248DD /* APIRequestHandler.swift in Sources */,
+				D148EB5E26CCA05F00B248DD /* UIImage+DominantColor.m in Sources */,
 				D1548B0326CB177600438E63 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -741,6 +770,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TMJ8683P73;
 				INFOPLIST_FILE = PhotoGalleryDemo/Info.plist;
@@ -750,6 +780,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MostafaSultan.PhotoGalleryDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PhotoGalleryDemo/Utils/PhotoGalleryDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -761,6 +793,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TMJ8683P73;
 				INFOPLIST_FILE = PhotoGalleryDemo/Info.plist;
@@ -770,6 +803,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MostafaSultan.PhotoGalleryDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PhotoGalleryDemo/Utils/PhotoGalleryDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
