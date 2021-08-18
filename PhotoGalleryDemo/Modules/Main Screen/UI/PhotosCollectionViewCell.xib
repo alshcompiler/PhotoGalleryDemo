@@ -19,16 +19,37 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="galleryPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="tmb-5e-QLL">
                         <rect key="frame" x="0.0" y="0.0" width="218" height="220"/>
                     </imageView>
+                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9h-G0-GIS">
+                        <rect key="frame" x="0.0" y="180" width="218" height="40"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Lox-nh-B1P"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPm-1W-2Hf">
+                        <rect key="frame" x="4" y="182.5" width="210" height="35"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="tmb-5e-QLL" secondAttribute="trailing" id="5Bd-DI-mYf"/>
                     <constraint firstAttribute="bottom" secondItem="tmb-5e-QLL" secondAttribute="bottom" id="C8S-6O-wFx"/>
+                    <constraint firstAttribute="bottom" secondItem="Y9h-G0-GIS" secondAttribute="bottom" id="Mbq-wc-Z90"/>
+                    <constraint firstItem="iPm-1W-2Hf" firstAttribute="leading" secondItem="Y9h-G0-GIS" secondAttribute="leading" constant="4" id="gX3-z3-TJJ"/>
+                    <constraint firstItem="iPm-1W-2Hf" firstAttribute="trailing" secondItem="Y9h-G0-GIS" secondAttribute="trailing" constant="-4" id="hwH-SA-1OX"/>
                     <constraint firstItem="tmb-5e-QLL" firstAttribute="leading" secondItem="ApH-Gs-7Wt" secondAttribute="leading" id="jaw-08-Hio"/>
+                    <constraint firstItem="iPm-1W-2Hf" firstAttribute="centerY" secondItem="Y9h-G0-GIS" secondAttribute="centerY" id="ke8-Gu-0I2"/>
+                    <constraint firstItem="Y9h-G0-GIS" firstAttribute="leading" secondItem="ApH-Gs-7Wt" secondAttribute="leading" id="p8a-CR-gba"/>
                     <constraint firstItem="tmb-5e-QLL" firstAttribute="top" secondItem="ApH-Gs-7Wt" secondAttribute="top" id="w8u-lz-SrJ"/>
+                    <constraint firstAttribute="trailing" secondItem="Y9h-G0-GIS" secondAttribute="trailing" id="y3h-VJ-YKn"/>
+                    <constraint firstItem="iPm-1W-2Hf" firstAttribute="height" secondItem="Y9h-G0-GIS" secondAttribute="height" constant="-5" id="zuC-ud-g2S"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="218" height="220"/>
             <connections>
+                <outlet property="authorLabel" destination="iPm-1W-2Hf" id="znU-ic-CMm"/>
                 <outlet property="photoImageView" destination="tmb-5e-QLL" id="uT5-7O-Tlc"/>
             </connections>
             <point key="canvasLocation" x="275.36231884057975" y="114.50892857142857"/>

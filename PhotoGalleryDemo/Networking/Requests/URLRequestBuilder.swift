@@ -39,7 +39,7 @@ extension URLRequestBuilder {
     }
     
     var mainURL: URL  {
-        return URL(string: "https://live.mysite.com")!
+        return URL(string: "https://picsum.photos/v2/")!
     }
     
     var requestURL: URL {

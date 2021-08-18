@@ -15,3 +15,6 @@ extension UIView {
         self.clipsToBounds = true
     }
 }
+
+extension Array: CodableInit where Element: Codable {}
+

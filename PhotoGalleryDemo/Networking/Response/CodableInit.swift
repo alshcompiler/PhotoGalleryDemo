@@ -15,7 +15,7 @@ protocol CodableInit {
 extension CodableInit where Self: Codable {
     init(data: Data) throws {
         let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.keyDecodingStrategy = .useDefaultKeys
         self = try decoder.decode(Self.self, from: data)
     }
 }

@@ -8,11 +8,15 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
     @IBOutlet private weak var photosCollectionView: UICollectionView!
+    
+    var presenter: HomePresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupPresenter()
         configureCollectionView()
     }
 
@@ -20,6 +24,11 @@ class HomeViewController: UIViewController {
         photosCollectionView.register(UINib(nibName: "PhotosCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: PhotosCollectionViewCell.cellIdentifier)
         photosCollectionView.delegate = self
         photosCollectionView.dataSource = self
+    }
+
+    private func setupPresenter() {
+        presenter = HomePresenter(view: self)
+        presenter.getPhotos()
     }
 }
 
@@ -29,13 +38,14 @@ extension HomeViewController: UICollectionViewDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return presenter.photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        presenter.goNextPage(index: indexPath.row)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.cellIdentifier, for: indexPath) as! PhotosCollectionViewCell
-        
-        cell.configure(index: indexPath.row)
+        let photo = presenter.photos[indexPath.row]
+        cell.configure(photo)
         
         return cell
     }
@@ -52,5 +62,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let cellWidth  = (view.frame.width - totalSpacing)/columns
         let cellHeight = cellWidth // modify if needed
         return CGSize(width: cellWidth, height: cellHeight)
+    }
+}
+
+extension HomeViewController: HomeView {
+    func reloadData() {
+        photosCollectionView.reloadData()
     }
 }
