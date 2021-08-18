@@ -10,10 +10,12 @@ import AlamofireImage
 
 class PhotosCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier: String = "\(PhotosCollectionViewCell.self)"
-    let screenWidth = UIScreen.main.bounds.width
+    
+    private let screenWidth: CGFloat = UIScreen.main.bounds.width
+    
     @IBOutlet weak var photoImageView: UIImageView!
     
-    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet private weak var authorLabel: UILabel!
     
     func configure(_ photo: PhotoDetails) {
         self.contentView.roundCorners()

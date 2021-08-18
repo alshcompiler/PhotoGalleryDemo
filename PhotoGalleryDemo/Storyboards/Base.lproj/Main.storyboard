@@ -45,6 +45,37 @@
             </objects>
             <point key="canvasLocation" x="103" y="94"/>
         </scene>
+        <!--Details View Controller-->
+        <scene sceneID="tL4-bd-p6k">
+            <objects>
+                <viewController storyboardIdentifier="DetailsViewController" id="0MY-I9-E4B" customClass="DetailsViewController" customModule="PhotoGalleryDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u6N-Tg-jnL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cv2-G0-6JO">
+                                <rect key="frame" x="0.0" y="246" width="414" height="414"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Cv2-G0-6JO" secondAttribute="height" multiplier="1:1" id="TTn-fW-ZGR"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hDX-dP-Z3M"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Cv2-G0-6JO" firstAttribute="centerX" secondItem="hDX-dP-Z3M" secondAttribute="centerX" id="ZKE-LA-yxf"/>
+                            <constraint firstItem="Cv2-G0-6JO" firstAttribute="width" secondItem="u6N-Tg-jnL" secondAttribute="width" id="j3H-En-mTM"/>
+                            <constraint firstItem="Cv2-G0-6JO" firstAttribute="centerY" secondItem="hDX-dP-Z3M" secondAttribute="centerY" id="vee-ZU-CG5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="Cv2-G0-6JO" id="vJK-70-Ffw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mUS-oa-eel" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="802" y="99"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
