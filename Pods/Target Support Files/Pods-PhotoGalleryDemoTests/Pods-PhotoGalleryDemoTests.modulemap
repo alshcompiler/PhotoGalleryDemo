@@ -1,0 +1,6 @@
+framework module Pods_PhotoGalleryDemoTests {
+  umbrella header "Pods-PhotoGalleryDemoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
