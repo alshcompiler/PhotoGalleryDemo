@@ -38,13 +38,11 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {// class storyBoards to return the story board, enum for storyboard IDs
-        let storyboard = UIStoryboard(name: "Main", bundle: nil) // protocol to instantiate the view controller
-        let viewController = storyboard.instantiateViewController(withIdentifier: DetailsViewController.storyboardID) as! DetailsViewController
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let photoData = presenter.photos[indexPath.row].imageData else {return}
         guard let photoImage = UIImage(data: photoData) else {return}
-        viewController.photo = photoImage
-        present(viewController, animated: true)
+        let viewController: DetailsViewController = DetailsViewController()
+        present(viewController.instantiate(image: photoImage), animated: true, completion: nil)
     }
 }
 

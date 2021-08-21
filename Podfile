@@ -8,6 +8,7 @@ target 'PhotoGalleryDemo' do
   # Pods for PhotoGalleryDemo
   pod 'Alamofire'
   pod 'AlamofireImage'
+  pod 'SVProgressHUD'
 
   target 'PhotoGalleryDemoTests' do
     inherit! :search_paths

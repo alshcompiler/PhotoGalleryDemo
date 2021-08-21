@@ -7,8 +7,8 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
-    static let storyboardID = "\(DetailsViewController.self)"
+
+class DetailsViewController: UIViewController, DetailsRoute {
     
     @IBOutlet private weak var photoImageView: UIImageView!
     var photo: UIImage = UIImage()

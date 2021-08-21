@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SVProgressHUD
 
 protocol HomeView: NSObjectProtocol { 
     func reloadData()
@@ -34,10 +35,12 @@ class HomePresenter {
     
     func getPhotos() {
         if !photos.isEmpty && !NetworkMonitor.shared.isReachable {return} // no need to load cache right? it will show exactly less than or equal to what is already on screen ;)
+        SVProgressHUD.show() // should have used infinite scrolling hud, maybe later :D 
         PhotosRepository.loadPhotos() { [weak self] response in
             guard let self = self else {return}
+            SVProgressHUD.dismiss()
             switch response {
-            case .failure(let error):
+            case .failure(_): // show alert 
                 break
                 // TODO: - show some error
             case .success(let photosResult):
