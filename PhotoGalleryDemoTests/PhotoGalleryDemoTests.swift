@@ -18,16 +18,48 @@ class PhotoGalleryDemoTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testPhotosAPI() throws {
+        
+        let promise = expectation(description: "data retrieved!")
+        var responseError: Error?
+        var dataRetrieved: Bool = false
+        PhotosRepository.loadPhotos() { response in
+            switch response {
+            case .failure(let error):
+                responseError = error
+            case .success(let photosResult):
+                dataRetrieved = photosResult.count > 0
+            }
+            promise.fulfill()
         }
+        wait(for: [promise], timeout: 5)
+        
+        XCTAssertNil(responseError)
+        XCTAssertTrue(dataRetrieved)
+        
+    }
+    
+    func testCacheMaxLimit() throws {
+        try XCTSkipUnless(
+            !NetworkMonitor.shared.isReachable,
+          "Disable Network connection to proceed this test.")
+        
+        let promise = expectation(description: "data retrieved!")
+        var responseError: Error?
+        var isWithinMaxLimit: Bool = false
+        PhotosRepository.loadPhotos() { response in
+            switch response {
+            case .failure(let error):
+                responseError = error
+            case .success(let photosResult):
+                isWithinMaxLimit = photosResult.count <= 20
+            }
+            promise.fulfill()
+        }
+        wait(for: [promise], timeout: 5)
+        
+        XCTAssertNil(responseError)
+        XCTAssertTrue(isWithinMaxLimit)
     }
 
 }
