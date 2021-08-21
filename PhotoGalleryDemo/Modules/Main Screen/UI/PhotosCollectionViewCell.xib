@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="218" height="220"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="galleryPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="tmb-5e-QLL">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="galleryPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="tmb-5e-QLL">
                         <rect key="frame" x="0.0" y="0.0" width="218" height="220"/>
                     </imageView>
                     <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9h-G0-GIS">
@@ -33,6 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="tmb-5e-QLL" secondAttribute="trailing" id="5Bd-DI-mYf"/>
                     <constraint firstAttribute="bottom" secondItem="tmb-5e-QLL" secondAttribute="bottom" id="C8S-6O-wFx"/>

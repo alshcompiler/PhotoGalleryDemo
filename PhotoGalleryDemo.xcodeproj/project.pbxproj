@@ -32,6 +32,11 @@
 		D1548B2326CB177800438E63 /* PhotoGalleryDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1548B2226CB177800438E63 /* PhotoGalleryDemoUITests.swift */; };
 		D1548B4326CB260D00438E63 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1548B4226CB260D00438E63 /* PhotosCollectionViewCell.swift */; };
 		D1548B4826CB264300438E63 /* PhotosCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1548B4726CB264300438E63 /* PhotosCollectionViewCell.xib */; };
+		D18FDDFB26D049A1004E600E /* GradientViewColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18FDDFA26D049A1004E600E /* GradientViewColor.swift */; };
+		D1E054B626CDBA0F004B4409 /* PhotosRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E054B526CDBA0F004B4409 /* PhotosRepository.swift */; };
+		D1E054BB26CDBFCB004B4409 /* PhotosOnlineDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E054BA26CDBFCB004B4409 /* PhotosOnlineDataStore.swift */; };
+		D1E054C026CF0066004B4409 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E054BF26CF0066004B4409 /* NetworkMonitor.swift */; };
+		D1E054C526CF0228004B4409 /* PhotosOfflineDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E054C426CF0228004B4409 /* PhotosOfflineDataStore.swift */; };
 		E328BA66F9E08B912ED2566D /* Pods_PhotoGalleryDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADBFF089DF0F17C212A7955 /* Pods_PhotoGalleryDemoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +96,11 @@
 		D1548B2426CB177800438E63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1548B4226CB260D00438E63 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1548B4726CB264300438E63 /* PhotosCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosCollectionViewCell.xib; sourceTree = "<group>"; };
+		D18FDDFA26D049A1004E600E /* GradientViewColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewColor.swift; sourceTree = "<group>"; };
+		D1E054B526CDBA0F004B4409 /* PhotosRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRepository.swift; sourceTree = "<group>"; };
+		D1E054BA26CDBFCB004B4409 /* PhotosOnlineDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosOnlineDataStore.swift; sourceTree = "<group>"; };
+		D1E054BF26CF0066004B4409 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		D1E054C426CF0228004B4409 /* PhotosOfflineDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosOfflineDataStore.swift; sourceTree = "<group>"; };
 		E7B8EDA51A0E30F15FF4E77B /* Pods-PhotoGalleryDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoGalleryDemo.debug.xcconfig"; path = "Target Support Files/Pods-PhotoGalleryDemo/Pods-PhotoGalleryDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		F8F3850C679E6B8A5EB8901C /* Pods_PhotoGalleryDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoGalleryDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -130,6 +140,8 @@
 				D148EB5C26CCA05F00B248DD /* UIImage+DominantColor.h */,
 				D148EB5D26CCA05F00B248DD /* UIImage+DominantColor.m */,
 				D148EB5B26CCA05F00B248DD /* PhotoGalleryDemo-Bridging-Header.h */,
+				D1E054BF26CF0066004B4409 /* NetworkMonitor.swift */,
+				D18FDDFA26D049A1004E600E /* GradientViewColor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -184,6 +196,9 @@
 			isa = PBXGroup;
 			children = (
 				D148EB1A26CB460800B248DD /* PhotosRouter.swift */,
+				D1E054B526CDBA0F004B4409 /* PhotosRepository.swift */,
+				D1E054BA26CDBFCB004B4409 /* PhotosOnlineDataStore.swift */,
+				D1E054C426CF0228004B4409 /* PhotosOfflineDataStore.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -577,8 +592,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E054BB26CDBFCB004B4409 /* PhotosOnlineDataStore.swift in Sources */,
 				D1548B0526CB177600438E63 /* HomeViewController.swift in Sources */,
 				D148EB2126CB460800B248DD /* URLRequestBuilder.swift in Sources */,
+				D1E054B626CDBA0F004B4409 /* PhotosRepository.swift in Sources */,
 				D148EB0726CB407500B248DD /* PhotoDetails.swift in Sources */,
 				D148EB4526CC5AA700B248DD /* HomePresenter.swift in Sources */,
 				D148EB1D26CB460800B248DD /* ResponseHandler.swift in Sources */,
@@ -590,9 +607,12 @@
 				D148EAF526CB35E800B248DD /* Extension.swift in Sources */,
 				D148EB5426CC98E400B248DD /* DetailsViewController.swift in Sources */,
 				D148EB2226CB460800B248DD /* UploadData.swift in Sources */,
+				D1E054C526CF0228004B4409 /* PhotosOfflineDataStore.swift in Sources */,
 				D1548B0126CB177600438E63 /* AppDelegate.swift in Sources */,
 				D148EB1B26CB460800B248DD /* APIRequestHandler.swift in Sources */,
+				D1E054C026CF0066004B4409 /* NetworkMonitor.swift in Sources */,
 				D148EB5E26CCA05F00B248DD /* UIImage+DominantColor.m in Sources */,
+				D18FDDFB26D049A1004E600E /* GradientViewColor.swift in Sources */,
 				D1548B0326CB177600438E63 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

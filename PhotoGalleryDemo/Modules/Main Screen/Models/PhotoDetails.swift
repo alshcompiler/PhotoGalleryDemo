@@ -8,15 +8,17 @@
 import Foundation
 // MARK: - PhotoDetails
 
-struct PhotoDetails: Codable, CodableInit {
+class PhotoDetails: Codable, CodableInit {
     let id, author: String?
     let url, downloadURL: String?
     let width, height: Int?
     var isAd: Bool = false
+    var imageData: Data?
 
     enum CodingKeys: String, CodingKey {
         case id, author, width, height, url
         case downloadURL = "download_url"
+        case imageData = "imageData"
     }
     
     private init (id: String, author: String, isAd: Bool = true) {
@@ -29,7 +31,7 @@ struct PhotoDetails: Codable, CodableInit {
         self.isAd = isAd
     }
     static func generateAd()  -> PhotoDetails {
-        return PhotoDetails(id: "-1", author: "Vodafone")
+        return PhotoDetails(id: "-1", author: "Vodafone Ad")
     }
 }
 

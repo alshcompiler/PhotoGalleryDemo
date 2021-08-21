@@ -39,8 +39,4 @@ enum PhotosRouter: URLRequestBuilder {
         }
         
     }
-    
-    
-    
-   
 }

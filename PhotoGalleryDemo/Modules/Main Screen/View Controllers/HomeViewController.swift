@@ -11,7 +11,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet private weak var photosCollectionView: UICollectionView!
     
-    var presenter: HomePresenter!
+    private var presenter: HomePresenter!
+    
     
     // MARK: - Life Cycle
     
@@ -37,13 +38,12 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {// class storyBoards to return the story board, enum for storyboard IDs
+        let storyboard = UIStoryboard(name: "Main", bundle: nil) // protocol to instantiate the view controller
         let viewController = storyboard.instantiateViewController(withIdentifier: DetailsViewController.storyboardID) as! DetailsViewController
-        guard let cell = collectionView.cellForItem(at: indexPath) as? PhotosCollectionViewCell else {return}
-        guard let photo = cell.photoImageView.image else {return}
-        viewController.photo = photo
-        // Alternative way to present the new view controller
+        guard let photoData = presenter.photos[indexPath.row].imageData else {return}
+        guard let photoImage = UIImage(data: photoData) else {return}
+        viewController.photo = photoImage
         present(viewController, animated: true)
     }
 }
@@ -57,12 +57,10 @@ extension HomeViewController: UICollectionViewDataSource {
         presenter.goNextPage(index: indexPath.row)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.cellIdentifier, for: indexPath) as! PhotosCollectionViewCell
         let photo = presenter.photos[indexPath.row]
-        cell.configure(photo)
+        cell.configure(photo, indexPath.row, self)
         
         return cell
     }
-    
-    //Write DataSource Code Here
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
@@ -80,5 +78,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 extension HomeViewController: HomeView {
     func reloadData() {
         photosCollectionView.reloadData()
+    }
+}
+
+extension HomeViewController: CacheCellImageDelegate {
+    func syncPhotosCache() {
+        presenter.scheduleCache() // only last time this method called + 5 seconds caching will start 
+         
     }
 }
