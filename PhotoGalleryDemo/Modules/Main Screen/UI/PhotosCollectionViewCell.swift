@@ -18,7 +18,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     private let screenWidth: CGFloat = UIScreen.main.bounds.width
     private let maxCacheIndex: Int = 19 // 0 based
     
-    @IBOutlet private weak var photoImageView: UIImageView!
+    @IBOutlet weak var photoImageView: UIImageView!
     
     @IBOutlet private weak var authorLabel: UILabel!
     
@@ -57,7 +57,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         photoImageView.af.setImage(withURL: url, placeholderImage: #imageLiteral(resourceName: "galleryPlaceholder"),filter: filter, imageTransition: .crossDissolve(0.5), runImageTransitionIfCached: false) { [weak self] image in
             
             guard let self = self else {return}
-            if index <= self.maxCacheIndex { // no need to store image data after 20 right?
+            if index <= self.maxCacheIndex { // no need to store image data after 20 right? 
                 guard let imageData =  image.value?.jpegData(compressionQuality: 1) else {return} // first time only for every image otherwise it returns nil
                 // chose jpegData since it's faster than pngData, didn't use image.data directly since it has the large image data not the cropped one
                 photo.imageData = imageData

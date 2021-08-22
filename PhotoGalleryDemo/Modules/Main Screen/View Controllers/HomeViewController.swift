@@ -39,10 +39,10 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let photoData = presenter.photos[indexPath.row].imageData else {return}
-        guard let photoImage = UIImage(data: photoData) else {return}
+        guard let cell = collectionView.cellForItem(at: indexPath) as? PhotosCollectionViewCell else {return}
+        guard let photo = cell.photoImageView.image else {return}
         let viewController: DetailsViewController = DetailsViewController()
-        present(viewController.instantiate(image: photoImage), animated: true, completion: nil)
+        present(viewController.instantiate(image: photo), animated: true, completion: nil)
     }
 }
 

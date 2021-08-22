@@ -16,7 +16,6 @@ class HomePresenter {
     
     private weak var view: HomeView!
     
-    private let maxAllowedCache: Int = 24 // calculated generated ads too
     private let pagingThreshold: Int = 2
     
     private var timer: Timer?
@@ -35,7 +34,7 @@ class HomePresenter {
     
     func getPhotos() {
         if !photos.isEmpty && !NetworkMonitor.shared.isReachable {return} // no need to load cache right? it will show exactly less than or equal to what is already on screen ;)
-        SVProgressHUD.show() // should have used infinite scrolling hud, maybe later :D 
+        SVProgressHUD.show() // should have used infinite scrolling hud, maybe later :D
         PhotosRepository.loadPhotos() { [weak self] response in
             guard let self = self else {return}
             SVProgressHUD.dismiss()
@@ -67,14 +66,13 @@ class HomePresenter {
         }
     }
     
-    @objc private func cacheData() { // if offline return
-        if photos.count <= maxAllowedCache && !photos.isEmpty {
+    @objc private func cacheData() {
+        if  !photos.isEmpty {
             UserDefaults.standard.set(try? PropertyListEncoder().encode(Array(photos.prefix(20))), forKey:"cashed photos")
         }
     }
     /// only the last time an image within the first 10 and first 20 gets downloaded + 5 seconds to give time for previous cells to download, then sync
     func scheduleCache() {
-        if photos.count > maxAllowedCache {return}
         self.timer?.invalidate()  // Cancel any previous timer
         self.timer = nil
         self.timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(self.cacheData), userInfo: nil, repeats: false)
